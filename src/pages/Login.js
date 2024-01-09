@@ -1,14 +1,17 @@
-import React, { useState } from "react";
-
+import React, { useState, useContext } from "react";
+import UserContext from "../context/UserContext";
 import { login } from "../api/auth";
 import { useMutation } from "@tanstack/react-query";
 const Login = () => {
   const [userInfo, setUserInfo] = useState({});
-
+  const [user, setUser] = useContext(UserContext);
   const { mutate } = useMutation({
     mutationKey: ["login"],
     mutationFn: () => login(userInfo),
-    onSuccess: () => console.log("first"),
+    onSuccess: () => {
+      setUser(true);
+      // navigator("/");
+    },
   });
 
   const handleChange = (e) => {
