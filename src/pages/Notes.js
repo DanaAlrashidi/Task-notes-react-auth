@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import NoteItem from "../components/NoteItem";
 import { getAllNotes } from "../api/notes";
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import AddNote from "../components/AddNote";
 
 const Notes = () => {
